@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--开启扫描
+        1.如果扫描多个包，用“,”隔开,或者扫描上级目录
+    -->
+    <context:component-scan base-package="SpringTest.annotate"></context:component-scan>
+    <!--
+        use-default-filiters="false" 表示不使用默认filter（不扫描所有文件）,自己配置filter
+        context:include-filter，设置扫描哪些内容 （扫描注解为Controller）
+    -->
+    <context:component-scan base-package="SpringTest">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+    </context:component-scan>
+    <!--
+        context:exclude-filter 设置不扫描哪些内容
+    -->
+
+</beans>
