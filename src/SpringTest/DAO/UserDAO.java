@@ -1,5 +1,5 @@
 package SpringTest.DAO;
 
 public interface UserDAO {
-    public void update();
+    void update();
 }
